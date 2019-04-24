@@ -1,0 +1,293 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>479Concepts</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">RESEARCH IN GIS</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="Concepts.html">Concepts</a></li>
+							<li><a href="Labs.html">Labs</a></li>
+							<li><a href="PaperReviews.html">Paper Reviews</a></li>
+							<li><a href="PeerPresentations.html">Peer Presentations</a></li>
+							<li><a href="FinalProject.html">Final Project</a></li>
+							<li><a href="https://rithikha.github.io/">Personal Website</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Concepts</h1>
+							<p>
+								The following summaries are based off Brian Klinkenberg's <a href ="http://ibis.geog.ubc.ca/courses/geob479/schedule/schedule.html">
+									course material for GEOB 479</a>.
+									<br>
+									<br>
+									<b>WEEK 1: INTRODUCTION TO THE COURSE</b>
+									<br>
+									This week we went through the roadmap for the course which is centred around three main applications of GIScience: landscape ecology,
+									health geography, and crime analysis. These three applications are linked by five commonalities: patterns, processes, places, people
+									and perspectives. Using spatial analysis, GIS explores where things happens (patterns, clusters, hotspsots, disparities), why they happen
+									where they do (process,  places), how one thing might affect other things (context, environment), and where things should occur or be located
+									(prediction, optimization).
+									<br>
+<br>
+<i>Landscape Ecology</i>
+<br>
+
+The goal of landscape ecology is to understand how the environment affects various biotic and abiotic processes. These distributions, abundances, and interactions
+between living organisms and non-living matter ultimately define the characteristics of the ecosystem. Landscape ecology is therefore a subset of ecology which
+investigates how landscape structure affects these processes and interactions. Due to the various hierarchies within a landscape, GIS analysis can occur on a patch-scale,
+where geography is removed from the analysis, or landscape-scale, where geography is factored in to the analysis.
+<br>
+<br>
+<i>Health Geography</i>
+<br>
+Health geography can be divided into three main branches: disease ecology, health care delivery, and environment and health. Disease ecology studies the patterns of
+infectious diseases in order to understand how they thrive and consequently, can be controlled. It also takes into account the social, political, and economic variables
+that can affect the spread of disease. Healthcare delivery focuses on the patterns in the responses to disease, such as health care provision and patient behavior.
+Environmental health is a field which seeks to understand how our environment (pollution, toxins, contamination) impacts our physical and mental well-being.
+<br>
+<br>
+<i>Crime Analysis</i>
+<br>
+Crime analysis is used to understand crime in relation to space. It has many important uses and informs the work of organizations operating on municipal, all the way to
+federal levels. By looking at trends across space and time, crime analysis allows for better city planning and preventative policy (in an ideal world). Numerous factors
+can contribute to the occurrence of crime, including population density, climate, transportation networks and locations, as well as economic and cultural factors. GIS
+provides an avenue for layering these factors to see how they interact and influence with one another. A few interesting theories related to crime are routine activity theory,
+social disorganization theory, rational choice theory, broken windows theory.
+							</p>
+							<br>
+
+							<p>
+								<b>WEEK 2: WHY IS GEOGRAPHY IMPORTANT</b>
+								<br>
+								When studying patterns and processes, properly defining scale is an important task as there is no one “natural” scale that can be used. Scale exists
+								temporarily as well as physically, and analysis at different scales often yield different results.
+<br>
+
+								The problem of scale is common to all sub-disciplines of GIS analysis. In Landscape Ecology ecosystem characteristics can be different during certain
+								times of the day or even year. It can also be different throughout a physical landscape which can range from a unit as small as a tree stand to a much
+								 larger area covering hectares of land. In crime analysis offenders can be marauders, those who commit crimes within their neighbourhood, or commuters,
+								  those who travel outside of their neighbourhood. A multi-scale analysis is usually the best way to fully understand how a phenomenon exists in different
+									levels of space.
+									<br>
+									<br>
+									<i>Key Points & Definitions:</i>
+
+									<ul>
+										<li>Grain: The minimum resolution of the data (cell size, quadrat size, pixel size, minimum mapping unit)
+</li>
+										<li>Extent: The scope or domain of the data (the size of the study area)
+ </li>
+										<li>As a study’s extent increases, variables which were previously constant usually become variable (soil type in a small area compared to soil
+											type throughout a large region) </li>
+										<li>Studies at the local level often reveal new/different patterns than studies at the national level</li>
+										<li>Spatial autocorrelation: Defined by Cliff and Ord (1973) as the phenomenon where ‘the presence of some quantity in a sampling unit
+											(e.g., a county) makes its presence in neighbouring sampling units (e.g., adjacent counties) more or less likely”</li>
+										<li>Problems with aggregation (Simpson’s paradox)</li>
+										<li>Modifiable Areal Unit Problem (MAUP): The problem of what constitutes as the best size and orientation/shape of spatial units (Gerrymandering,
+											 local vs. national studies, etc)
+</li>
+									</ul>
+
+									MAUP exists because geographical areas are usually comprised of individuals and households that tend to be more alike within an area than to those
+									outside of the area . There are three main classes of these areas or “neighbourhoods”:
+<br>
+<br>
+									<i>Neighbourhood I</i> : Grouping models, in which similar individuals/households choose, or are constrained, to locate in the same area/group, either when
+									 those groups are originally formed or through migrations.
+<br>
+									<i>Neighbourhood II</i> : Group-dependent models, in which individuals/households in the same area/group are subject to similar external influences.
+<br>
+									<i>Neighbourhood III</i> : Feedback models in which individuals/households interact with each other and influence each other, and the frequency/strength
+									of such interaction is likely to be greater between individuals in the same area/group than between individuals in different areas.
+
+
+							</p>
+
+<br>
+							<p>
+								<b>WEEK 3: LANDSCAPE ECOLOGY</b>
+								<br>
+								This week we explored landscape ecology in greater depth. Monica Turner, one of the founders of the field, writes that landscape ecology is distinct
+								from other ecology subdisciplines for two main reasons:
+<ol>
+	<li>It considers spatial configurations in addition to quantity</li>
+	<li>it often explores spatial extents much larger than those in other ecological studies</li>
+</ol>
+
+								We also learned about a few different tools and frameworks that landscape ecologists have at their disposal such as Markov analysis (a forecasting
+								 method based on markov chains), simulation models (a computer model of an abstract system), spatially explicit population models (a model which
+								 specifies the spatial distribution of a feature), and new indices such as Green Edge.
+
+							</p>
+
+	<br>
+							<p>
+								<b>WEEK 4: STATISTICS - A REVIEW </b>
+								<br>
+								This week we reviewed basic statistical methods which can be used to validate observations, provide greater insight into our data, and generate
+								predictions. There are different types of statistical measures which each provide greater insight into a certain aspect of data. These include
+								 measures of variation (mode, median, mean), measure of central tendency (absolute range, coefficient of variation, standard deviation/variance),
+								 measures of skewness (coefficient of skewness, quartile skewness), measures of kurtosis, and measures of relative position.
+<br>
+<br>
+								Regressions are also useful tools to use see how one variable is influenced by another or many others. Almost all regression analysis should start
+								 off with an exploratory regression which allows a user to see which variables are most important to use. We learned about different types of
+								 regressions such as logistic regressions, multiple logistic regressions, generalized linear models, ordinary least square regressions (global models),
+								  geographically weighted regressions (local models - an extension of traditional regressions which takes into account spatial relations and differences).
+
+
+							</p>
+	<br>
+
+							<p>
+								<b>WEEK 6: WHAT IS HEALTH GEOGRAPHY </b>
+								<br>
+
+								Health geography is often considered the child of medical geography, which looked at the spatial distribution of diseases in order to better understand
+								them. However health geography takes it a step further to look beyond the body, and into the social and environmental factors that are also at play. As
+								such, within the place versus space debate, health geographers often emphasize the aspect of place. The sub-fields of disease ecology, health care
+								delivery, environment and health, and health inequality are of particular interest to health geographers. Jon Snow’s cholera maps of 1854, were one of
+								the first health geography studies and perhaps the first use of GIS.
+
+							</p>
+
+	<br>
+							<p>
+								<b>WEEK 7: GIS AND HEALTH GEOGRAPHY </b>
+								<br>
+								This week we went over some methods used by health geographers and some specific health-related applications of GIS such as spatial epidemiology,
+								identifying environmental hazards, modeling health services, and identifying health inequalities. GIS can be used to map exposure of land and water
+								 pollutants, this has become much easier to do in recent years due to better availability of geo-referenced health and population data. Healthcare
+								 accessibility models can also be created taking into account a variety of geographic and socio-economic factors such as location from health care
+								 providers, race, and income levels. Increased global connectivity also increases the spread of disease from one area to another. GIS can be used to
+								  survey various hazards, track exposure, and better understand disease outcomes.
+<br>
+<br>
+								In this week’s lab Sam Walker, a previous UBC lecturer (currently working at Safe Software) hosted a FME workshop where we learned how to integrate
+								and transform data, and automate workflows.
+
+							</p>
+
+	<br>
+							<p>
+								<b>WEEK 8: THE PARTICPATORY BIO CITIZEN & FINAL PROJECT IDEAS</b>
+								<br>
+								Citizen science is becoming more and more common as it can be an easy and cost-effective way of collecting data which otherwise would be near impossible to obtain. During our discussion of “the participatory biocitizen” we explored the benefits and repercussions of collecting data in this way. There is of course a difference between someone who willingly collects data on themselves or volunteers to provide their data for a certain cause or product, however this line is rather tenuous in this day and age when our data is being collected, distributed, and sold to other parties without our knowledge. This issue of privacy and consent was a common concern for the class and we discussed the benefits and possible implications of services and products like 23andme.
+<br>
+<br>
+								We spent the rest of the class bouncing ideas for the final project off of each other.
+
+							</p>
+
+	<br>
+							<p>
+								<b>WEEK 10: GIS AND CRIME</b>
+								<br>
+								GIS has many applications in crime, primarily for visualizing the occurrence of crime and identifying patterns occurring over time and space. However,
+								not all sub-disciplines of criminology acknowledge crime as a geographic phenomena. Environmental Criminology does see crime as inherently geographic in
+								nature. A few environmental criminology theories we looked at were routine activity theory, rational choice theory, and criminal pattern theory. As Crime
+								 follows a geographic pattern, GIS is a useful tool to track offenders, identify hotspots and provide more context to those who are tasked with mitigating
+								  crime.
+<br>
+<br>
+								The National Police Foundation defines crime as “the qualitative and quantitative study of crime and law enforcement information in combination with
+								sociodemographic and spatial factors to apprehend criminals, prevent crime, reduce disorder, and evaluate organizational procedures.”
+								The analysis of crime can be applied to intelligence analysis, criminal investigative analysis, tactical crime analysis, strategic crime analysis,
+								 and administrative crime analysis. Policing can be a much more efficient process with GIS analysis by using data to implement risk-based policing and
+								 deploy resources/interventions effectively.
+
+							</p>
+
+	<br>
+							<p>
+								<b>WEEK 11: THE USE OF GIS IN FIRE DEPARTMENTS </b>
+								<br>
+								GIS is widely used in almost all aspects of firefighting, from prevention to response. GIS can be used to aggregate and visualize large amounts of
+								 information which is important in response situations where the pressure is high and minimizing wasted time is essential. GIS can be used to map
+								 incidents, response times, identify areas which lack service, understand the layout of a building/area (before even going inside), as well as
+								  maintaining a large network of fire hydrants. GIS also has many applications in wildfire management which will likely become a major issue in BC
+									over the next few years. Combined with remote sensing techniques, GIS can be used to track crews through smoke, identify at-risk areas, and identify
+									the safest pickup and drop off points.
+
+							</p>
+
+	<br>
+							<p>
+								<b>WEEK 12: COURSE REVIEW</b>
+								<br>
+								This lecture was a review of the tools and concepts we were introduced to over the last 11 weeks. These include various tools such as fragstats,
+								crimestat, FME, ESRI’s regression analysis tools (EDA, OLS, GWR), spatial autocorrelation, data management and integration, as well as applications
+								 and concepts in landscape ecology, health geography, and crime analysis.
+
+							</p>
+						</div>
+					</div>
+
+
+					<!-- Footer -->
+						<footer id="footer">
+							<div class="inner">
+								<section>
+									<h2>Follow</h2>
+									<ul class="icons">
+										<li><a href="https://github.com/rithikha" class="icon style2 fa-github"><span class="label">GitHub</span></a></li>
+										<li><a href="https://www.linkedin.com/in/rithikha/" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
+										<li><a href="rithikha.rajamohan@gmail.com" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
+
+									</ul>
+								</section>
+								<ul class="copyright">
+									<li>&copy; Rithikha Rajamohan. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+								</ul>
+							</div>
+						</footer>
+
+				</div>
+
+			<!-- Scripts -->
+				<script src="assets/js/jquery.min.js"></script>
+				<script src="assets/js/browser.min.js"></script>
+				<script src="assets/js/breakpoints.min.js"></script>
+				<script src="assets/js/util.js"></script>
+				<script src="assets/js/main.js"></script>
+
+		</body>
+	</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>479Labs</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">RESEARCH IN GIS</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="Concepts.html">Concepts</a></li>
+							<li><a href="Labs.html">Labs</a></li>
+							<li><a href="PaperReviews.html">Paper Reviews</a></li>
+							<li><a href="PeerPresentations.html">Peer Presentations</a></li>
+							<li><a href="FinalProject.html">Final Project</a></li>
+							<li><a href="https://rithikha.github.io/">Personal Website</a></li>
+						</ul>
+					</nav>
+
+					<!-- Main -->
+						<div id="main">
+							<div class="inner">
+								<h1>Labs and Tutorials</h1>
+								<p>
+									<b>TUTORIAL 1</b>
+									In this tutorial we became more familiar with ArcMap’s capabilities by mapping heart diseases hotspots in southeastern US. The process involved
+									obtaining health data from <a href ="https://wonder.cdc.gov/">CDC Wonder</a>, prepping and cleaning the data for analysis, learning how to use
+									model builder to automate iterative processes, and creating an animation of heart disease hotspots over 18 years.
+
+									<div class="box alt">
+										<div class="row gtr-uniform">
+											<div class="col-8"><span class="image fit"><img src="images/pic07.jpg" alt="Tutorial 1 map" /></span></div>
+										</div>
+									</div>
+									<br>
+									_______________________________________________________________________________
+								</p>
+								<br>
+								<br>
+								<p>
+									<b>LAB 1: EXPLORING FRAGSTATS</b>
+
+	<i>Specific Software/Tools: Fragstats</i>
+<br>
+<br>
+	In this lab we learned how to use Fragstats to analyze land use change in Edmonton, Alberta. The process included downloading land cover data from the Canada
+	Land Use Monitoring Program (CLUMP) for the years 1966 and 1976, and creating a transition matrix of the change that occurred over this period of time.
+	<div class="box alt">
+		<div class="row gtr-uniform">
+			<div class="col-8"><span class="image fit"><img src="images/pic08.png" alt="Lab 1 map" /></span></div>
+		</div>
+	</div>
+
+<i>Results Summary</i>
+<br>
+<br>
+<ol>
+	<li>Urban built-up area expanded significantly. Only 35.63% of this land use area came from previous urban built land, while 38.88% was previously cropland and
+		13.51% unimproved pasture and rangeland</li>
+<li>Mines, Quarries, Sand, and Gravel Pits have expanded in the area with 63.58% of this 1976 land use occurring in areas which were previously cropland</li>
+<li>Non-productive woodland area increased, however fragmentation of this land use also increased</li>
+<br>
+<i>Recommendations</i>
+<br>
+<br>
+It is recommended that the city adopt measures to curb urban sprawl. Policies should be introduced that make land use within the city more efficient and aid
+in decreasing the centripetal forces which push the city’s border outwards and fragment farmland and woodland. Housing policy will likely be an important factor
+in mitigating sprawl, so thought should be given to how housing and living costs can be made more accessible and affordable within the city limits. Acknowledging
+ecosystem services will also be beneficial in the long run, as areas classified as productive and unproductive woodland, swamps, marshes, bogs, and rockland carry
+ economic benefits which are seldom realized until they have been degraded. The results indicate that the city is pushing towards more oil and gas exploration and
+ extraction efforts, therefore it is of the utmost importance that environmental protection measures are put in place, such as pollution taxes to national and
+ foreign companies wishing to set-up near the city. If the economic value of these land uses were quantified however, this could also pave the way forward for a
+ new sector of renewable energy infrastructure and demand.
+ <br>
+ <br>
+ _______________________________________________________________________________
+</p>
+<br>
+<p>
+<b>LAB 2: GEOGRAPHICALLY WEIGHTED REGRESSION</b>
+
+<i>Specific Software/Tools: ESRI Spatial Analyst Regression tools</i>
+<br>
+<br>
+A geographically weighted regression (GWR) was used to create a model for predicting a child’s social scores. Thirteen independent variables were initially identified:
+<div class="box alt">
+	<div class="row gtr-uniform">
+		<div class="col-5"><span class="image fit"><img src="images/pic09.png" alt="Lab 2 map" /></span></div>
+	</div>
+</div>
+
+The following steps were taken to determine which variables would best predict a child’s social score and see how the prediction value of these variables changed
+over space:
+
+<ol>
+	<li>Exploratory Regression (to isolate significant independent variables)</li>
+<li>Ordinary Least Squares Regression (to estimate global model parameters)</li>
+<li>Geographically Weighted Regression (to estimate local variation in model fit)</li>
+<li>Grouping Analysis</li>
+</ol>
+
+From the exploratory regression results, the model using the income, gender, and language score variables had the highest R-squared value and lowest AICc,
+indicating that these variables are the best predictors of a child’s social score, and display the least amount of multicollinearity. From the OLS, the coefficients
+of the equation were as expected, with social scores increasing as language skills and income increase and for the binary gender variable, decreasing if the child
+is female (likely due to human bias and gender stereotypes).
+<br>
+<br>
+<div class="box alt">
+	<div class="row gtr-uniform">
+		<div class="col-8"><span class="image fit"><img src="images/pic10.png" alt="Lab 2 " /></span></div>
+	</div>
+</div>
+
+The GWR local R-squared values are the highest in the upper to mid-eastern sections of the city as well as near Downtown and Kitsilano.
+ These areas are where the model is performing well. The lowest local R-squared values are found near the upper right and middle section of the city,
+ as well as near point grey, indicating that the local regression model does not fit the observed social score values well.
+<br>
+<br>
+ <div class="box alt">
+ 	<div class="row gtr-uniform">
+ 		<div class="col-6"><span class="image fit"><img src="images/pic11.png" alt="Lab 2 " /></span></div>
+		<div class="col-6"><span class="image fit"><img src="images/pic12.png" alt="Lab 2 " /></span></div>
+ 	</div>
+ </div>
+
+ Finally in order to better interpret the GWR results, ESRI’s grouping analysis tool was used to create 4 distinct groups. These groups were based on the Childcare,
+  Fam4, LoneParent, RecImmig and Income variables, and highlight the different demographics found in the city.   There is a clear spatial split between East
+	(Group 4) and West Vancouver (Group 2), as well as the area consisting of the UBC area, Kitsilano and part of Downtown (Group 1). Group 3, very well off,
+	 2-parent families with more than one child (and at least one stay at home parent) are dispersed throughout the city, though they tend to live more in the
+	  middle/western area than the eastern half.
+		<br>
+		<br>
+		_______________________________________________________________________________
+</p>
+
+<p>
+	<br>
+	<b>LAB 3: CRIME ANALYSIS </b> <i>Specific Software/Tools: Crimestat</i>
+	<br>
+	GIS plays an important role in crime analysis. This lab introduced us to CrimeStat, a crime mapping software program, which we used to analyze crime in
+	 Ottawa. The data was sourced from the Ottawa Police Department. We analyzed the spatial distribution of various crimes occurring between January 2005 and
+	 March 2006 (Residential Break and Enters, Commercial Break and Enters, Stolen Vehicles, and Robberies).
+<br>
+<br>
+The objective of this lab was to determine if crime activity patterns show evidence of temporal and spatial clustering using:
+
+<ul>
+	<li><i>Nearest neighbour hierarchical clustering</i>(measures the spread or distribution of a value over space)</li>
+	<li><i>Spatial autocorrelation statistics</i> (the degree to which one object is similar to other nearby objects)
+ </li>
+	<li> <i>Hotspot analysis</i>(identifying statistically significant hotspots in data)
+</li>
+	<li> <i>Kernel density estimation</i> (using sample points from a distribution to estimate the unknown probability distribution of a variable)
+</li>
+<br>
+Nearest Neighbour Hierarchical (NNH) spatial clustering evaluates hot spots of criminal activity based on a minimum radius around points, in our case 1,000 metres.
+ The Fuzzy analysis visualizes first order clusters from the nearest neighbour hierarchical analysis and shows the hotspots of crime. The NNH used in this analysis is
+ agglomerative, meaning each observation starts in its own cluster (first order as seen in the map) and are then merged together as we move up the hierarchy (second
+  order clusters and so on).
+<br>
+<br>
+A hotspot is present in the downtown area of the City of Ottawa as shown by the two maps below. Expanding radially from this downtown hotspot, crime incidents become
+less frequent, however clustering still exists in certain areas. For many cities, downtown areas are crime hubs due to the density of residential and commercial
+activities, as is shown in Ottawa. The clustering shown in Figure 4 can be useful to stakeholders such as the police, in terms of determining where to best position
+themselves based on crime frequency.
+<br>
+<br>
+
+<div class="box alt">
+ <div class="row gtr-uniform">
+	 <div class="col-6"><span class="image fit"><img src="images/pic13.jpg" alt="Lab 2 " /></span></div>
+	 <div class="col-6"><span class="image fit"><img src="images/pic14.jpg" alt="Lab 2 " /></span></div>
+ </div>
+</div>
+
+</p>
+							</div>
+						</div>
+
+
+
+
+<!--
+<div class="box alt">
+	<div class="row gtr-uniform">
+		<div class="col-12"><span class="image fit"><img src="images/pic13.jpg" alt="" /></span></div>
+	</div>
+</div>
+-->
+
+					<!-- Footer -->
+						<footer id="footer">
+							<div class="inner">
+								<section>
+									<h2>Follow</h2>
+									<ul class="icons">
+										<li><a href="https://github.com/rithikha" class="icon style2 fa-github"><span class="label">GitHub</span></a></li>
+										<li><a href="https://www.linkedin.com/in/rithikha/" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
+										<li><a href="rithikha.rajamohan@gmail.com" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
+
+									</ul>
+								</section>
+								<ul class="copyright">
+									<li>&copy; Rithikha Rajamohan. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+								</ul>
+							</div>
+						</footer>
+
+				</div>
+
+			<!-- Scripts -->
+				<script src="assets/js/jquery.min.js"></script>
+				<script src="assets/js/browser.min.js"></script>
+				<script src="assets/js/breakpoints.min.js"></script>
+				<script src="assets/js/util.js"></script>
+				<script src="assets/js/main.js"></script>
+
+		</body>
+	</html>
