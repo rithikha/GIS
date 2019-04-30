@@ -381,7 +381,7 @@ The MCE results show that the highest amounts of gentrifying change occurred in 
 		</div>
 
 		Of these five variables, four are place-based predictors highlighting the physical characteristics of an
-		area, with Apartments under five stories, percent one-person households, and median commute time being
+		area, with apartments under five stories, percent one-person households, and median commute time being
 		statistically significant (p = 0.01). One economic predictor, median household income, was also included
 		 in the best model, however no social predictors were identified.
 		<br><br>
@@ -401,15 +401,15 @@ The MCE results show that the highest amounts of gentrifying change occurred in 
 		ethnicities have different relationships to gentrification.
 		<br><br>
 		Median commute time, percent one-person households, percent old buildings, and median income are negatively
-		correlated to gentrification levels. Shorter commuting time to work could reflect a shorter distance to business
-		districts, which would increase the attractiveness of an area to higher-income residents. The results for
+		correlated to gentrification levels. Shorter commuting time to work could be a result of a beign situated closer to business districs,
+		 which would increase the attractiveness of an area to higher-income residents. The results for
 		one-person households were surprising as previous studies have shown that gentrified neighborhoods contain more
 		 one-person households and households with unrelated adults (Furman Center, 2015). The relationship between
 		 one-person households and gentrification could be influenced by other trends, such as changing lifestyles and
-		 attitudes towards marriage which would affect housing demand (Bachman & Darua, 2015). The relationship between
+		 attitudes towards marriage which would affect the demand for certain types of housing stock (Bachman & Darua, 2015). The relationship between
 		 building age and gentrification was also contrary to the findings of previous studies which found older building
-		 stock to be a gentrification attractor (Cline, 2017). This relationship may also be context-specific however.
-		 The availability or construction of new housing stock in different areas of the city may play some role in this
+		 stock to be a gentrification attractor (Cline, 2017). This relationship may be context-specific as well.
+		 The availability or construction of new housing stock in different areas of the city due to zoning laws may play some role in this
 		 negative correlation. Numerous studies support the negative relationship between income and gentrification,
 		 showing that lower income areas are more likely to gentrify, largely due to the lower housing values. Lower-income
 		  residents are also more likely to be displaced due to housing appreciation after an influx of middle and upper
@@ -417,14 +417,14 @@ The MCE results show that the highest amounts of gentrifying change occurred in 
 		<br><br>
 		Percent of apartments under five stories is positively correlated with gentrification. Apartments under five stories
 		represent cheaper housing stock, and possibly degraded areas where developers find greater opportunity for new housing
-		development. A perfect example of this is the currently gentrifying neighbourhood of Strathcona, which contains one of
-		the highest percentages of apartments under five stories in the city. This type of housing stock would also be more
-		 affordable for low-income groups.
+		development or redevelopment. The currently gentrifying Strathcona neighbourhood reflects this observation. The neighbourhood
+		has one of the the highest percentages of apartments under five stories in the city and this type of housing stock would also be more
+		 affordable for low-income groups, making it more susceptible to gentrifying forces.
 		<br><br>
 
 All maximum variance inflation factors (VIF) were under the acceptable threshold of 4 (source), except for percent one-person
- households (VIF = 4.63) which indicates that the model may be unreliable due to multicollinearity. This variable was not
- included in the geographically weighted regression.
+households (VIF = 4.63) which indicates that the model may be unreliable due to multicollinearity. This variable was not
+included in the geographically weighted regression.
 <br><br>
 
 <b>Ordinary Least Squares Regression</b>
@@ -462,7 +462,7 @@ The coefficient values are highest for the one-person households, apartments und
 
 
 <br>
-Multiple R-squared value is 0.16 and 0.12 for the adjusted R-squared value. The F-Statistic, a measure of overall model
+The GWR Multiple R-squared value is 0.16 and 0.12 for the adjusted R-squared value. The F-Statistic, a measure of overall model
 significance is trustworthy as the Koenker (BP) statistic is not statistically significant. As the F-statistic is significant
 this indicates that the explanatory variables in the model are effective (ESRI, n.d.).
 <br><br>
@@ -491,10 +491,10 @@ distribution and as indicated by the Jarque-Bera p-value, the model is significa
 <b>Geographically Weighted Regression</b>
 
 <br><br>
-The GWR results are summarized in the table below. Overall the model has a multiple R-squared value of 0.15, and an adjusted R-squared value
- of 0.04. The adjusted R-squared value is adjusted for the number of predictors in the model, which results in a value that is always lower
+The GWR results are summarized in the table below. Overall the model has a multiple R-squared value of 0.12,
+and an adjusted R-squared value of 0.04. The adjusted R-squared value is adjusted for the number of predictors in the model, which results in a value that is always lower
  than the multiple R-squared value. However, the model’s Adjusted R-squared is much lower and may indicate that some variables improve the
- model by less than what is expected by chance (are not significant such as percent old buildings and median household income.
+ model by less than what is expected by chance (non-statistically significant variables such as percent old buildings and median household income.
 <br><br>
 
 <div class="box alt">
@@ -561,7 +561,7 @@ The R-squared values show local model fit over the census tracts. The model perf
 
 <h2>Conclusion</h2>
 <p>
-A geographically weighted regression was conducted using four place-based variables, median commute time, percent buildings built in 1981 or before, and percent apartments under five stories, and one economic variable, median household income. Together these four variables account for 12% of the variation seen in the model. The model fits best in the eastern section of the city and progressively weakens moving westward. Of the three classes of variables used, place-based variables were identified as most significant in the exploratory regression analysis, followed by economic variables. No social variables were identified. The results indicate that place-based characteristics are the best predictors of future gentrifying potential and could give clues to policymakers in which areas are most at-risk and adjust policies and incentives appropriately. It would also be worth exploring policy and cultural variables, such as number of re-zoning applications, CAC’s, and cultural spaces, event hubs, and organizations in the city to see if, and how they may hinder or spur gentrification.
+A geographically weighted regression was conducted using four place-based variables, median commute time, percent buildings built in 1981 or before, and percent apartments under five stories, and one economic variable, median household income. Together these four variables account for 12% of the variation seen in the model (Multiple R-squared). The model fits best in the eastern section of the city and progressively weakens moving westward. Of the three classes of variables used, place-based variables were identified as most significant in the exploratory regression analysis, followed by economic variables. No social variables were identified. The results indicate that place-based characteristics are the best predictors of future gentrifying potential and could give clues to policymakers in which areas are most at-risk and adjust policies and incentives appropriately. It would also be worth exploring policy and cultural variables, such as number of re-zoning applications, CAC’s, and cultural spaces, event hubs, and organizations in the city to see if, and how they may hinder or spur gentrification.
 
 <Br><br><br>
 	______________________________________________________________________________________________________________________________
