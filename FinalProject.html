@@ -240,7 +240,9 @@ for inflation since 2011.
 	</div>
 </div>
 The 2011 and 2016 datasets were then imported into the geodatabase and joined by attribute table value
-(CTUID) to ClipCT_2011. Five new fields for the changes in the five variables were created in the attribute table and using the attribute calculator, the percent change occurring from 2011 to 2016 was calculated for the median income and housing price fields using the following equation 1:
+(CTUID) to ClipCT_2011. Five new fields for the changes in the five variables were created in the attribute table
+ and using the attribute calculator,  percent change occurring from 2011 to 2016 was calculated for the median
+ income and housing price fields. The using the following equation was used for these variables:
 <br><br>
 	Equation 1.   ((2016X  –  2011X) / 2011X) * 100
 <br><br>
@@ -284,7 +286,10 @@ The <b>Int Tool</b> was then used to convert the floating point values to intege
 2011 Apartments under five stories (normalized) =  0.43 <br>
 2011 one-person households (normalized)  = 0.587
 <br><br>
-The dataset was imported into the geodatabase and again joined by CTUID to a new ClipCT_2011 layer. Two shapefiles containing points representing community centres were <b>spatially joined</b> to ClipCT_2011 using a <b>One-to-One</b> join operation and the <b>Sum</b> merge rule. The MCE gentrification value feature class was <b>spatially joined</b> using a <b>One-to-Many</b> join operation and a <b>Median</b> merge option.
+The dataset was imported into the geodatabase and again joined by CTUID to a new ClipCT_2011 layer. Two shapefiles containing points
+representing community centres were <b>spatially joined</b> to ClipCT_2011 using a <b>One-to-One</b> join operation and the
+ <b>Sum</b> merge rule. The MCE gentrification value feature class was <b>spatially joined</b> using a <b>One-to-Many</b>
+ join operation and a <b>Median</b> merge option.
 <br><br>
 Once the final attribute table was created, three regression tools <b>from ArcMap’s Modeling Spatial Relationships Toolset</b> were used with the following inputs:
 
