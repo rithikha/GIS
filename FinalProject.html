@@ -52,14 +52,546 @@
 					<!-- Main -->
 						<div id="main">
 							<div class="inner">
-								<h1>Final Project</h1>
+								<h1>Predicting Gentrification in Vancouver, BC</h1>
+								<h3> Rithikha Rajamohan | GEOB 479 <h3>
 
-								<p>
-Round 2 is in the works!
+	<h2>ABSTRACT</h2>
+	<p><strong>Gentrification</strong> is an urban issue closely tied to social equity in cities. While gentrification brings
+		 improved or new amenities and services to residents, access to these improvements are often limited to the middle or upper class,
+		 thereby exacerbating existing socio-economic silos. This study aims to identify which social, economic and place-based factors best
+		 predicts gentrification in Vancouver, BC. A multi-criteria evaluation was first conducted to identify levels of negative neighbourhood
+			change from 2010 to 2015. These values were then used alongside ten predictor variables in a geographically weighted regression (GWR).
+			An exploratory regression identified median income, median commute time, percent one-person households, percent old buildings, and
+			percent apartments under five stories in 2010 as the most significant variables in predicting the amount of gentrifying change
+			 experienced by 2015 in a census tract. These variables account for 12% of the variation seen in the model, and median commute time,
+				percent apartments under five stories, and percent old buildings were statistically significant (p = 0.01). However, due to
+				 multicollinearity, the percent of one-person households was removed for the GWR analysis. The results indicate that much of the
+					model variation is unaccounted for by these variables. This study seeks to aid policy makers in identifying which areas are most
+					prone to experiencing gentrifying change and inform policies and incentives accordingly. The role of housing, zoning, and building
+					 policies, presence of businesses, as well as cultural capital should be explored in the future to see what role they may play in
+						advancing or deterring gentrifying forces.</p>
+<br><br>
+	<h2>Introduction </h2>
+	<p><strong>Global cities</strong> such as Washington, D.C., London, Paris, and Vancouver are at the forefront of what is called the
+		“new urban crisis” (Citylab & Rotman School of Business, 2017). As inequality soars, marginalized communities are
+		 disproportionately impacted by the changes brought on by an influx of affluent residents and lack of opportunities for upward
+		 mobility (Florida, 2017). Both of which are hallmarks of gentrification (Florida, 2017).
+	 <br><br>
+	 The term itself was first coined in 1964 by Ruth Glass, a British sociologist and Director of Social Research at University College
+		London at the time (Slater, 2012). Watching the changes occurring around her home in a North London district called Islington,
+		 she observed that:
+		 <br><br>
+		 <i> “One by one, many of the working class neighbourhoods of London have been invaded by the middle-classes— upper and lower.
+			 Shabby, modest mews and cottages— two rooms up and two down— have been taken over, when their leases have expired, and have
+			 become elegant, expensive residences ... Once this process of 'gentrification' starts in a district it goes on rapidly, until all
+			 or most of the original working-class occupiers are displaced and the whole social character of the district is changed.”</i>
+			 <br><br>
+			 Some urbanists, such as Jane Jacobs, believe that gentrification can be beneficial in small amounts. Known as internal
+				gentrification or incumbent upgrading, this process kickstarts an internally-powered revitalization process (World Bank, 2002).
+				In comparison, external gentrification is one that kills diversity and displaces minorities and low-income groups (World Bank, 2002).
+				<br><br>
+			 Though the mechanisms of gentrification are unique to each city (Anderson, 2017), a number of common neighborhood characteristics
+			 have been identified as indicators of gentrification:
+			 <br><br>
+				- Housing Price<br>
+				-	Income<br>
+				-	Education Levels<br>
+				-	Minority Population Presence<br>
+				<br>
+				Housing prices and income measure the affordability of an area and the level of housing instability residents face. Increases
+				in income and housing prices are indicators of displacement due to well-educated and affluent residents moving into an area and
+				inflating property values. Increases in educational attainment also reflect the influx of new, more affluent residents into a
+				neighbourhood. Another indication of displacement is when the presence of minority populations diminishes over a short period of
+				time. The effect of minority population presence on driving or inhibiting gentrification depends on many factors such as cultural
+				beliefs and stereotypes. As such, the relationship between minority groups and gentrification is not always clear or constant. A
+				study by Hwang and Sampson (2014) found that neighborhoods with a high percentage of African American residents were less likely
+				to gentrify, than areas with a high percentage of Latino residents, due to non-Hispanic white residents’ views of majority black
+				neighborhoods (Rigolon, Németh, 2019).
+				<br><br>
+				<b>A multi-criteria evaluation </b>was first conducted by a previous <a href = "https://rithikha.github.io/Gentrification/">exploration of
+				 gentrification</a> and a series of studies by the media platform, <a href ="https://www.governing.com/gov-data/portland-gentrification-maps-demographic-data.html">
+				Governing</a>. The MCE study area is the City of Vancouver, BC and the evaluation was conducted in order to calculate
+				 gentrification levels for Part 2 of this study, a regression analysis. The following variables were used to identify the amount
+				 of gentrifying change occurring in census tracts from 2010 to 2015:</p>
 
-								</p>
+		<ul class="feature-icons">
+		<li class="icon fa-signal">  Median Household Income</li>
+		<li class="icon fa-signal">  Percent Minority Population</li>
+		<li class="icon fa-signal">  Percent Aboriginal Population</li>
+		<li class="icon fa-signal">  Percent Educated-Bachelor’s or Above</li>
+	</ul>
+
+		<b>Part 2 of this study explores which neighborhood characteristics best predicts future gentrification potential</b> using a geographically weighted
+		regression. The following ten predictors were used as independent variables and describe the social, economic, and physical
+		characteristics of an area.
+		<br><br>
+		<i>Social Predictors include measures of population demographics and proxies for social capital in an area.</i><br>
+
+- Minority population<br>
+- Aboriginal Population<br>
+- Community Centres
+<br>
+<br>
+<i>Economic Predictors are measure of a populations capacity to withstand and mitigate economic shocks and changes.</i><br>
+- Renter to Owner Ratio<br>
+- Median Household Income<br>
+
+<br>
+<i>Physical Predictors are the place-based characteristics of an area. These include type of housing stock,
+population density, aesthetic qualities, and accessibility to business districts. </i><br>
+- Apartments Under Five Stories<br>
+- One Person Households <br>
+- Old Buildings<br>
+- Population Density<br>
+- Median Commute Time to Work<br>
+			<!-- <br>
+<b>In Part 3 of the study</b>, a grouping analysis is used to identify the location of four different populations in
+Vancouver based on median income levels, ethnicity, work commute time, and population density.-->
+
+<br>
+Gentrification is often seen as an inevitable part of a neighbourhood’s evolution, with some researchers such as
+Brahinksy (2014) identifying gentrification as “our economy’s urban form” (p.52) (Rigolon, Németh, 2019). Ultimately,
+this study aims to dissect gentrification into its social, economic, and place-based components in order to identify
+the best avenues for addressing its negative effects and support the factors that suppress it.
+</p>
+
+<br><br>
+	<h2>Data</h2>
+	<p><strong>Boundary Files</strong><br>
+		<u>City of Vancouver Open Data Catalogue </u><br>
+		Census local area profiles 2011
+</p>
+<p><strong>Basemap</strong><br>
+<u>ESRI ArcGIS </u><br>
+Census local area profiles 2011
+</p>
+
+<p><strong>Boundary Files</strong><br>
+<u>City of Vancouver Open Data Catalogue </u><br>
+Light Gray Canvas: Esri, HERE, Garmin, INCREMENT P, © OpenStreetMap contributors, and the GIS user community
+</p>
+
+<p><strong>Multi-Criteria Evaluation</strong><br>
+<u>CHASS Data Centre - 2011 National Household Survey (NHS) Census Tracts Profiles<br>
+CHASS Data Centre - 2016 Census Tract Profiles
+</u><br>
+Census Tract Name; Vancouver, BC<br>
+Median household total income ($) <br>
+Median value of dwellings ($)<br>
+Total visible minority population; Both sexes (normalized by total population)<br>
+Aboriginal identity; Both sexes (normalized by total population)<br>
+University certificate, diploma or degree at bachelor level or above; Both sexes
+(normalized by total population aged 15 years and over)
+</p>
+
+
+<p><strong>Geographically Weighted Regression</strong><br>
+<u>CHASS Data Centre - 2011 National Household Survey (NHS) Census Tracts Profiles </u><br>
+Census Tract Name; Vancouver, BC <br>
+Total number of occupied dwellings by period of construction built in 1981 or before (normalized by
+total number of occupied private dwellings by period of construction)<br>
+Median commuting duration; Both sexes <br>
+Total number of private households by tenure; Renter<br>
+Total number of private households by tenure; Owner<br>
+Median Income ($); Both sexes<br>
+Total visible minority population; Both sexes (normalized by total population)<br>
+Aboriginal identity; Both sexes (normalized by total population)
+<br><br>
+<u>CHASS Data Centre- 2011 Census Tract Profiles</u><br>
+Census Tract Name; Vancouver, BC<br>
+Population density per square kilometer<br>
+Apartment building that has fewer than five stories (normalized by total number of
+occupied private dwellings by structural type of dwelling)<br>
+One-person households (normalized by total number of private households by household type)
+<br><br>
+<u>UBC Department of Geography Geospatial Database </u><br>
+2011 Community Centres
+
+			<!--
+<p><strong>Grouping Analysis</strong><br>
+<u>CHASS Data Centre - 2011 National Household Survey (NHS) Census Tracts Profiles</u><br>
+Census Tract Name; Vancouver, BC<br>
+Median commuting duration; Both sexes<br>
+Median Income ($); Both sexes<br>
+Total visible minority population; Both sexes (normalized by total population)<br>
+Aboriginal identity; Both sexes (normalized by total population)<br><br>
+<u>CHASS Data Centre- 2011 Census Tract Profiles</u><br>
+Census Tract Name; Vancouver, BC<br>
+Population density per square kilometer
+</p>
+-->
+<br><br>
+	<h2>Methodology</h2>
+	<b>Base City Map</b> <br><br>
+	The census tract shapefile was clipped to the City of Vancouver boundary (ClipCT_2011)<br><br>
+
+<b>Multi-Criteria Evaluation (MCE)</b><br><br>
+
+The MCE methodology was adapted from a previous MCE exploring gentrification, full details can be found
+<a href = "https://rithikha.github.io/Gentrification/methodology.html">here</a>
+<br><br>
+<i>Data Cleaning</i>: Raw census data was normalized into percentages (if necessary) and then cleaned into columns with
+appropriate headers in Microsoft Excel. The 2016 income and housing prices were divided by a factor of 1.07 to account
+for inflation since 2011.
+<br><br>
+<div class="box alt">
+	<div class="row gtr-uniform">
+		<div class="col-8"><span class="image fit"><img src="images/fp1.png" alt="" /></span></div>
+	</div>
+</div>
+The 2011 and 2016 datasets were then imported into the geodatabase and joined by attribute table value
+(CTUID) to ClipCT_2011. Five new fields for the changes in the five variables were created in the attribute table and using the attribute calculator, the percent change occurring from 2011 to 2016 was calculated for the median income and housing price fields using the following equation 1:
+<br><br>
+	Equation 1.   ((2016X  –  2011X) / 2011X) * 100
+<br><br>
+The change in the minority population, aboriginal population, and highly educated population were calculated using equation 2 as their values already existed as percentages:
+<br><br>
+Each MCE variable was then converted to raster format using the Polygon to Raster Tool  and the following inputs:
+<br><br>
+	Equation 2.   2016X – 2011X
+	<br><br>
+	Each MCE variable was then converted to raster format using the <b>Polygon to Raster Tool</b>  and the following inputs:
+	<div class="box alt">
+		<div class="row gtr-uniform">
+			<div class="col-8"><span class="image fit"><img src="images/fp2.png" alt="" /></span></div>
+		</div>
+	</div>
+
+	Using the <b>Fuzzy Membership Tool</b>, the rasters were then normalized to a
+	scale of 0 (weak set membership) to 1 (strong set membership) through a fuzzy
+	 <b>Linear Membership</b> function. A <b>Somewhat Hedge</b> was used and the
+	 minimum and maximum values were specified appropriately with an inversion of
+	 the percent change in minority population and aboriginal population minimum
+	 and maximum values.
+<br><br>
+An equally weighted overlay was created from the fuzzified rasters to produce
+the final MCE raster.
+<br><br>
+In order to use these gentrification values in an ordinary least squares and geographically weighted regression, the MCE raster needed to be converted to a feature class.
+<br><br>
+As the <b>Raster to Feature tool</b> requires integer raster values, the following steps were taken to convert the MCE floating point values.
+<br><br>
+First, decimal places were removed from the MCE gentrification values by multiplying by a factor of 100,000 using the <b>Raster Calculator tool</b>.
+The <b>Int Tool</b> was then used to convert the floating point values to integers. Finally the <b>Convert Raster to Feature </b>tool (using all defaults) was used to create a shapefile with an attribute table for the gentrification values.
+
+
+
+<br><br>
+<b> Geographically Weighted Regression</b>
+<br><br>
+<i>Data Cleaning</i>: Raw 2011 census data was normalized and modified as necessary (renter to owner ratio was calculated). Census Tract 9330058.00 did not have any associated census data for the apartments under five stories and number of one-person households variables. Given that the CT lies within the Strathcona neighbourhood, the following average neighbourhood values for these two variables were given to the CT:
+<br><br>
+2011 Apartments under five stories (normalized) =  0.43 <br>
+2011 one-person households (normalized)  = 0.587
+<br><br>
+The dataset was imported into the geodatabase and again joined by CTUID to a new ClipCT_2011 layer. Two shapefiles containing points representing community centres were <b>spatially joined</b> to ClipCT_2011 using a <b>One-to-One</b> join operation and the <b>Sum</b> merge rule. The MCE gentrification value feature class was <b>spatially joined</b> using a <b>One-to-Many</b> join operation and a <b>Median</b> merge option.
+<br><br>
+Once the final attribute table was created, three regression tools <b>from ArcMap’s Modeling Spatial Relationships Toolset</b> were used with the following inputs:
+
+<br><br>
+<u>Exploratory Regression Tool</u>
+<ul>
+<li><b>Dependent Variable: </b>GentValue</li>
+<li><b>Candidate Explanatory Variables: </b>ApU5, F1hous, OldB, RentOwn, Inc, Minor, Abg, Commute, PopDen, and ComCen</li>
+<li><b>Maximum Number of Explanatory Variables</b>: 5 </li>
+<li><b>Minimum Number of Explanatory Variables</b>: 1 </li>
+<li><b>Accept all other defaults</b> </li>
+</uL>
+<u>Ordinary Least Squares (OLS) Tool</u>
+<li><b>Unique ID field</b>: OBJECTID1</li>
+<li><b>Candidate Variables</b>: ApU5, F1hous, OldB, Commute, and Inc</li>
+<li><b>Output feature class and output report file specified</b></li>
+</ul>
+
+Informed by the results of the OLS and exploratory regression, a GWR was conducted using the the variables with the highest adjusted r-squared value, lowest AICc values, and lowest multicollinearity values. The <b>Polygon to Points tool </b>was first used to convert the CT polygons into points located at the center of each census tract.
+<br><br>
+
+
+<u>Geographically Weighted Regression (GWR) Tool </u>
+<ul>
+<li><b>Parameters:</b> ApU5, OldB, Commute, and Inc</li>
+
+<li><b>Kernel Type:</b> Adaptive</li>
+
+<li><b>Bandwidth method:</b> Bandwidth_Parameter</li>
+
+<li><b>Number of Neighbours:</b> 250</li>
+
+<li><b>Additional Parameters</b>
+<ul>
+<li>Specify coefficient raster workspace</li>
+<li><b>Cell Size:</b> 15</li>
+</li>
+</ul>
+</ul>
+
+
+The <b>spatial autocorrelation (Moran’s I) </b>was then used to identify any patterns in the GWR residuals with the following inputs:<br>
+<ul>
+<li>Conceptualization of Spatial Relationships: FIXED_DISTANCE_BAND </li>
+<li>Distance method: EUCLIDEAN_DISTANCE</li>
+</ul>
+
+<!--
+<b>Grouping Analysis</b><br><br>
+Finally, a grouping analysis was conducted using the following inputs:
+<ul>
+<li><b>Input variables</b>: Commute, Inc, Minor, Abg</li>
+<li><b>Number of Groups</b>: 4</li>
+<li><b>Unique ID</b>: OBJECTID1</li>
+<li><b>Spatial Constraints: </b> No_Spatial_Constraint</li>
+<li><b>Initialization method</b>: Use_Random_Seeds</li>
+<li><b>Distance Method</b>: Euclidean</li>
+<li>Specified an Output Report File/li>
+<li>Checked the Evaluate Optimal Number of Groups box</li>
+-->
+<br>
+<h2>Results & Discussion</h2>
+<b>Multi-Criteria Evaluation</b> <br><br>
+The MCE results show that the highest amounts of gentrifying change occurred in census tracts located within the
+ neighbourhoods of Strathcona, Grandview woodland, Kensington- Cedar Cottage, Shaughnessy, and Fairview. The lowest
+  values are found in hastings- Sunrise, Kitsilano, Dunbar-Southlands, Killarney, Renfrew-Collingwood, and
+	the West End Neighbourhoods.
+
+<br><br>
+	<div class="box alt">
+		<div class="row gtr-uniform">
+			<div class="col-12"><span class="image fit"><img src="images/fp3.png" alt="" /></span></div>
+		</div>
+	</div>
+
+	<b>Explanatory Regression</b>
+	<br><br>
+	The results of the exploratory regression indicate that of the ten predictor variables, the percent apartments
+	under five stories, percent one-person households, percent old buildings, median income, and median commute
+	time best account for the variation in the model (Adjusted R-squared = 0.12; lowest AICc value - 3334.75).
+
+
+		<div class="box alt">
+			<div class="row gtr-uniform">
+				<div class="col-8"><span class="image fit"><img src="images/fp4.png" alt="" /></span></div>
+			</div>
+		</div>
+
+		Of these five variables, four are place-based predictors highlighting the physical characteristics of an
+		area, with Apartments under five stories, percent one-person households, and median commute time being
+		statistically significant (p = 0.01). One economic predictor, median household income, was also included
+		 in the best model, however no social predictors were identified.
+		<br><br>
+
+		<div class="box alt">
+			<div class="row gtr-uniform">
+				<div class="col-4"><span class="image fit"><img src="images/fp5.png" alt="" /></span></div>
+					<div class="col-4"><span class="image fit"><img src="images/fp6.png" alt="" /></span></div>
+			</div>
+		</div>
+
+		The exploratory variables significance summary shows that both percent aboriginal population and percent
+		minority population are positively, and almost identically correlated with gentrification values (% negative
+		correlation = 11.33 & 12.89; % positive correlation = 88.67 & 87.11 respectively). This indicates that the
+		strength of minorities and aboriginal populations in an area have the same effect on gentrification levels.
+		Although, in a global city such as Vancouver, it may be worth dissecting minority groups to see if specific
+		ethnicities have different relationships to gentrification.
+		<br><br>
+		Median commute time, percent one-person households, percent old buildings, and median income are negatively
+		correlated to gentrification levels. Shorter commuting time to work could reflect a shorter distance to business
+		districts, which would increase the attractiveness of an area to higher-income residents. The results for
+		one-person households were surprising as previous studies have shown that gentrified neighborhoods contain more
+		 one-person households and households with unrelated adults (Furman Center, 2015). The relationship between
+		 one-person households and gentrification could be influenced by other trends, such as changing lifestyles and
+		 attitudes towards marriage which would affect housing demand (Bachman & Darua, 2015). The relationship between
+		 building age and gentrification was also contrary to the findings of previous studies which found older building
+		 stock to be a gentrification attractor (Cline, 2017). This relationship may also be context-specific however.
+		 The availability or construction of new housing stock in different areas of the city may play some role in this
+		 negative correlation. Numerous studies support the negative relationship between income and gentrification,
+		 showing that lower income areas are more likely to gentrify, largely due to the lower housing values. Lower-income
+		  residents are also more likely to be displaced due to housing appreciation after an influx of middle and upper
+			class residents (Atuesta & Hewings, 2018).
+		<br><br>
+		Percent of apartments under five stories is positively correlated with gentrification. Apartments under five stories
+		represent cheaper housing stock, and possibly degraded areas where developers find greater opportunity for new housing
+		development. A perfect example of this is the currently gentrifying neighbourhood of Strathcona, which contains one of
+		the highest percentages of apartments under five stories in the city. This type of housing stock would also be more
+		 affordable for low-income groups.
+		<br><br>
+
+All maximum variance inflation factors (VIF) were under the acceptable threshold of 4 (source), except for percent one-person
+ households (VIF = 4.63) which indicates that the model may be unreliable due to multicollinearity. This variable was not
+ included in the geographically weighted regression.
+<br><br>
+
+<b>Ordinary Least Squares Regression</b>
+<br><br>
+The OLS regression results expand on these relationships within the model.
+<br><br>
+
+<div class="box alt">
+	<div class="row gtr-uniform">
+		<div class="col-8"><span class="image fit"><img src="images/fp7.png" alt="" /></span></div>
+	</div>
+</div>
+
+<br>
+The coefficient values are highest for the one-person households, apartments under five stories, and old buildings, indicating
+ the strength between these explanatory variables and gentrification values is the strongest. The weakest relationship is between
+  median income and gentrification values.
+<br>
+
+<div class="box alt">
+	<div class="row gtr-uniform">
+		<div class="col-8"><span class="image fit"><img src="images/fp8.png" alt="" /></span></div>
+	</div>
+</div>
+
+
+<br>
+
+
+<div class="box alt">
+	<div class="row gtr-uniform">
+		<div class="col-8"><span class="image fit"><img src="images/fp9.png" alt="" /></span></div>
+	</div>
+</div>
+
+
+<br>
+Multiple R-squared value is 0.16 and 0.12 for the adjusted R-squared value. The F-Statistic, a measure of overall model
+significance is trustworthy as the Koenker (BP) statistic is not statistically significant. As the F-statistic is significant
+this indicates that the explanatory variables in the model are effective (ESRI, n.d.).
+<br><br>
+The Jarque–Bera Statistic is statistically significant however, indicating that the model is biased. This could be due to four
+ reasons: model misspecification, the presence of non-linear relationships within the model, heteroskedasticity, or influential
+  outliers in the data. Model misspecification is highly likely as a number of variables were not included due to data accessibility and time constraints.
+A non-linear relationship between the variables used in the regression is also a strong possibility. Model bias is reflected in the
+ variable histograms which are all skewed. The scatterplots for the variables do not have any strong diagonal patterns which indicate
+ non-linear relationships are likely occurring.
+<br><br>
+
+<div class="box alt">
+	<div class="row gtr-uniform">
+		<div class="col-4"><span class="image fit"><img src="images/fp10.png" alt="" /></span></div>
+			<div class="col-4"><span class="image fit"><img src="images/fp11.png" alt="" /></span></div>
+	</div>
+</div>
+
+Finally, the OLS standard histogram residual reflects the over and under predictions of the model. The model is skewed from a normal
+distribution and as indicated by the Jarque-Bera p-value, the model is significantly biased.  The residual scatterplot highlights problems
+ with non-stationarity (which is addressed in geographically weighted regressions but not in OLS) and heteroskedasticity. Heteroskedasticity
+  is likely an issue as the scatterplot is cone shaped, indicating that the model predicts better in areas with high gentrifying change
+	values, than those with lower values.
+<br><br>
+
+<b>Geographically Weighted Regression</b>
+
+<br><br>
+The GWR results are summarized in the table below. Overall the model has a multiple R-squared value of 0.15, and an adjusted R-squared value
+ of 0.04. The adjusted R-squared value is adjusted for the number of predictors in the model, which results in a value that is always lower
+ than the multiple R-squared value. However, the model’s Adjusted R-squared is much lower and may indicate that some variables improve the
+ model by less than what is expected by chance (are not significant such as percent old buildings and median household income.
+<br><br>
+
+<div class="box alt">
+	<div class="row gtr-uniform">
+		<div class="col-8"><span class="image fit"><img src="images/fp12.png" alt="" /></span></div>
+	</div>
+</div>
+
+
+The GWR residuals were checked for spatial autocorrelation (Moran’s I) and the over and under predications of the model are randomly distributed.
+Since clustering does not occur, model mispecification is likely not an issue.
+<br><br>
+
+<div class="box alt">
+	<div class="row gtr-uniform">
+		<div class="col-6"><span class="image fit"><img src="images/fp13.png" alt="" /></span></div>
+			<div class="col-6"><span class="image fit"><img src="images/fp14.png" alt="" /></span></div>
+	</div>
+</div>
+
+The output coefficient rasters highlight the spatial variation in the explanatory variables and can be used to determine at which
+administration level policies would be best implemented (local or regional variation). Areas where the coefficients are the greatest
+ indicate a strong relationship to the gentrification values at those locations. Variation in the four variable coefficients is largely
+ at the city scale, with high and low values encompassing more than one neighbourhood in all cases.
+<br><br>
+
+The R-squared values show local model fit over the census tracts. The model performs well in the Eastern section of the city and fairly
+ poorly in the western section of the city. It performs very poorly in the upper middle are of the city (South Cambie, Riley park, and
+ the southern section of the Mount Pleasant neighbourhood).
+<br><br>
+
+
+<div class="box alt">
+	<div class="row gtr-uniform">
+		<div class="col-6"><span class="image fit"><img src="images/fp15_1.png" alt="" /></span></div>
+		<div class="col-6"><span class="image fit"><img src="images/fp15.png" alt="" /></span></div>
+			<div class="col-6"><span class="image fit"><img src="images/fp16_1.png" alt="" /></span></div>
+			<div class="col-6"><span class="image fit"><img src="images/fp16.png" alt="" /></span></div>
+				<div class="col-6"><span class="image fit"><img src="images/fp17_1.png" alt="" /></span></div>
+				<div class="col-6"><span class="image fit"><img src="images/fp17.png" alt="" /></span></div>
+					<div class="col-6"><span class="image fit"><img src="images/fp18_1.png" alt="" /></span></div>
+				  <div class="col-6"><span class="image fit"><img src="images/fp18.png" alt="" /></span></div>
+						  <div class="col-6"><span class="image fit"><img src="images/" alt="" /></span></div>
+						  <div class="col-6"><span class="image fit"><img src="images/fp19.png" alt="" /></span></div>
+						</div>
+					</div>
+
+</p>
+
+<h2>Sources of Error  & Opportunities for Improvement</h2>
+<p>
+<b>1 </b>The multi-criteria evaluation conducted to attain gentrification values for the regression was based on the assumption that census tracts began to gentrify starting in 2010. In reality, some tracts could have already gentrified by 2010 or started to gentrify before or after 2010. To address this, change in gentrification levels (negative neighbourhood change) was calculated over a period of 5 years, from 2010 to 2015 rather than a snapshot of gentrification at a certain time period. This helps in reducing errors if this model is used in to explore gentrification in cities for comparison.
+<br><br>
+<b>2 </b>Census tract data was also missing from areas of the city such as Downtown and the area near the University of British Columbia’s campus. Both are important areas as the former acts as a main commercial and housing hub, and the latter may play a role in gentrifying surrounding neighbourhoods and increasing inequality due to the combination of subsidized housing, mixing of the creative classes, and increased demand for better neighbourhood services (Florida, 2015).
+<br><br>
+<b>3 </b>The Jarque – Bera Statistic is statistically significant indicating the model is biased. Furthermore, the scatterplots indicate that a non-linear relationship may exist within the model. The study could be improved by expanding the candidate variables used and accounting for non-linear relationships by transforming the data. A geographically weighted regression may not be the best statistical tool to model the relationships between the predicter variables and gentrification levels so different regression techniques should be explored to see which has the best fit.
+<br><br>
+
+<b>4 </b>This study used economic, social, and place-based variables to explore gentrification and why it occurs where it does. Furthermore, policy related variables were not included in the study due to time and access constraints. Housing and development policies or activities in the City of Vancouver such as community amenity contributions (CAC’s) and number of re-zoning applications would be important variables to consider as they likely influence all three types (economic, social, and place) variables.
+<br><br>
+<b>5 </b>The model mainly identified place-based characteristics (4/5 of the final variables included in the model) and one economic variable. No social factors were included in the Explanatory regression results. The reasons for which would be worth exploring more, especially the role of cultural capital in influencing gentrification.
+<br><br>
+</p>
+
+<h2>Conclusion</h2>
+<p>
+A geographically weighted regression was conducted using four place-based variables, median commute time, percent buildings built in 1981 or before, and percent apartments under five stories, and one economic variable, median household income. Together these four variables account for 12% of the variation seen in the model. The model fits best in the eastern section of the city and progressively weakens moving westward. Of the three classes of variables used, place-based variables were identified as most significant in the exploratory regression analysis, followed by economic variables. No social variables were identified. The results indicate that place-based characteristics are the best predictors of future gentrifying potential and could give clues to policymakers in which areas are most at-risk and adjust policies and incentives appropriately. It would also be worth exploring policy and cultural variables, such as number of re-zoning applications, CAC’s, and cultural spaces, event hubs, and organizations in the city to see if, and how they may hinder or spur gentrification.
+
+<Br><br><br>
+	______________________________________________________________________________________________________________________________
+
+<i> Special thanks to Dr. Brian Klinkenberg and Peter Whitman for their advice and guidance</i>
+</p>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</p>
 							</div>
 						</div>
+
+
+
+
+
+
+
+
+
+
+
 
 					<!-- Footer -->
 						<footer id="footer">

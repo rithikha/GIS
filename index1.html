@@ -1,0 +1,673 @@
+<!DOCTYPE HTML>
+<!--
+	Paradigm Shift by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Predicting Gentrification</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Intro -->
+					<section class="intro">
+						<header>
+							<h1>Predicting Gentrification </h1>
+							<p>Rithikha Rajamohan
+								<br>FINAL PROJECT GEOB 479</p>
+							<ul class="actions">
+								<li><a href="#first" class="arrow scrolly"><span class="label">Next</span></a></li>
+							</ul>
+						</header>
+						<div class="content">
+							<span class="image fill" data-position="center"><img src="images/pic01.jpg" alt="" /></span>
+						</div>
+					</section>
+
+				<!-- Section -->
+					<section id="first">
+						<header>
+							<h2>ABSTRACT</h2>
+						</header>
+						<div class="content">
+							<p><strong>Gentrification</strong> is an urban issue closely tied to social equity in cities. While gentrification brings
+								 improved or new amenities and services to residents, access to these improvements are often limited to the middle or upper class,
+								 thereby exacerbating existing socio-economic silos. This study aims to identify which social, economic and place-based factors best
+								 predicts gentrification in Vancouver, BC. A multi-criteria evaluation was first conducted to identify levels of negative neighbourhood
+								  change from 2010 to 2015. These values were then used alongside ten predictor variables in a geographically weighted regression (GWR).
+									An exploratory regression identified median income, median commute time, percent one-person households, percent old buildings, and
+									percent apartments under five stories in 2010 as the most significant variables in predicting the amount of gentrifying change
+									 experienced by 2015 in a census tract. These variables account for 12% of the variation seen in the model, and median commute time,
+									  percent apartments under five stories, and percent old buildings were statistically significant (p = 0.01). However, due to
+										 multicollinearity, the percent of one-person households was removed for the GWR analysis. The results indicate that much of the
+										  model variation is unaccounted for by these variables. This study seeks to aid policy makers in identifying which areas are most
+											prone to experiencing gentrifying change and inform policies and incentives accordingly. The role of housing, zoning, and building
+											 policies, presence of businesses, as well as cultural capital should be explored in the future to see what role they may play in
+											  advancing or deterring gentrifying forces.</p>
+
+						</div>
+					</section>
+
+				<!-- Section -->
+					<section>
+						<header>
+							<h2>Introduction </h2>
+						</header>
+						<div class="content">
+							<p><strong>Global cities</strong> such as Washington, D.C., London, Paris, and Vancouver are at the forefront of what is called the
+								“new urban crisis” (Citylab & Rotman School of Business, 2017). As inequality soars (source), marginalized communities are
+								 disproportionately impacted by the changes brought on by an influx of affluent residents and lack of opportunities for upward
+								 mobility. Both of which are hallmarks of gentrification.
+							 <br><br>
+							 The term itself was first coined in 1964 by Ruth Glass, a British sociologist and Director of Social Research at University College
+							  London at the time (Slater, 2012). Watching the changes occurring around her home in a North London district called Islington,
+								 she observed that:
+								 <br><br>
+								 <i> “One by one, many of the working class neighbourhoods of London have been invaded by the middle-classes— upper and lower.
+									 Shabby, modest mews and cottages— two rooms up and two down— have been taken over, when their leases have expired, and have
+									 become elegant, expensive residences ... Once this process of 'gentrification' starts in a district it goes on rapidly, until all
+									 or most of the original working-class occupiers are displaced and the whole social character of the district is changed.”</i>
+									 <br><br>
+									 Some urbanists, such as Jane Jacobs, believe that gentrification can be beneficial in small amounts. Known as internal
+									  gentrification or incumbent upgrading, this process kickstarts an internally-powered revitalization process (World Bank, 2002).
+										In comparison, external gentrification is one that kills diversity and displaces minorities and low-income groups (World Bank, 2002).
+										<br><br>
+								   Though the mechanisms of gentrification are unique to each city (Anderson, 2017), a number of common neighborhood characteristics
+									 have been identified as indicators of gentrification:
+									 <br><br>
+									  - Housing Price<br>
+									  -	Income<br>
+										-	Education Levels<br>
+										-	Minority Population Presence<br>
+										<br>
+										Housing prices and income measure the affordability of an area and the level of housing instability residents face. Increases
+										in income and housing prices are indicators of displacement due to well-educated and affluent residents moving into an area and
+										inflating property values. Increases in educational attainment also reflect the influx of new, more affluent residents into a
+										neighbourhood. Another indication of displacement is when the presence of minority populations diminishes over a short period of
+										time. The effect of minority population presence on driving or inhibiting gentrification depends on many factors such as cultural
+										beliefs and stereotypes. As such, the relationship between minority groups and gentrification is not always clear or constant. A
+										study by Hwang and Sampson (2014) found that neighborhoods with a high percentage of African American residents were less likely
+										to gentrify, than areas with a high percentage of Latino residents, due to non-Hispanic white residents’ views of majority black
+										neighborhoods (Rigolon, Németh, 2019).
+										<br><br>
+										<b>A multi-criteria evaluation </b>was first conducted by a previous <a href = "https://rithikha.github.io/Gentrification/">exploration of
+										 gentrification</a> and a series of studies by the media platform, <a href ="https://www.governing.com/gov-data/portland-gentrification-maps-demographic-data.html">
+										Governing</a>. The MCE study area is the City of Vancouver, BC and the evaluation was conducted in order to calculate
+										 gentrification levels for Part 2 of this study, a regression analysis. The following variables were used to identify the amount
+										 of gentrifying change occurring in census tracts from 2010 to 2015:</p>
+
+								<ul class="feature-icons">
+								<li class="icon fa-signal">Median Household Income</li>
+								<li class="icon fa-signal">Percent Minority Population</li>
+								<li class="icon fa-signal">Percent Aboriginal Population</li>
+								<li class="icon fa-signal">Percent Educated-Bachelor’s or Above</li>
+							</ul>
+
+								<b>Part 2 of this study explores which neighborhood characteristics best predicts future gentrification potential</b> using a geographically weighted
+								regression. The following ten predictors were used as independent variables and describe the social, economic, and physical
+								characteristics of an area.
+								<br><br>
+								<i>Social Predictors include measures of population demographics and proxies for social capital in an area.</i><br>
+
+- Minority population<br>
+- Aboriginal Population<br>
+- Community Centres
+<br>
+<br>
+<i>Economic Predictors are measure of a populations capacity to withstand and mitigate economic shocks and changes.</i><br>
+- Renter to Owner Ratio<br>
+- Median Household Income<br>
+
+<br>
+<i>Physical Predictors are the place-based characteristics of an area. These include type of housing stock,
+	population density, aesthetic qualities, and accessibility to business districts. </i><br>
+- Apartments Under Five Stories<br>
+- One Person Households <br>
+- Old Buildings<br>
+- Population Density<br>
+- Median Commute Time to Work<br>
+
+<br><br>
+<b>In Part 3 of the study</b>, a grouping analysis is used to identify the location of four different populations in
+	Vancouver based on median income levels, ethnicity, work commute time, and population density.</p>
+<br.<br>
+Gentrification is often seen as an inevitable part of a neighbourhood’s evolution, with some researchers such as
+ Brahinksy (2014) identifying gentrification as “our economy’s urban form” (p.52) (Rigolon, Németh, 2019). Ultimately,
+ this study aims to dissect gentrification into its social, economic, and place-based components in order to identify
+  the best avenues for addressing its negative effects and support the factors that suppress it.
+</div>
+</section>
+
+
+
+				<!-- Section -->
+					<section>
+						<header>
+							<h2>Data</h2>
+						</header>
+						<div class="content">
+							<p><strong>Boundary Files</strong><br>
+								<u>City of Vancouver Open Data Catalogue </u><br>
+								Census local area profiles 2011
+</p>
+<p><strong>Basemap</strong><br>
+ <u>ESRi ArcGIS </u><br>
+ Census local area profiles 2011
+</p>
+
+<p><strong>Boundary Files</strong><br>
+	<u>City of Vancouver Open Data Catalogue </u><br>
+	Light Gray Canvas: Esri, HERE, Garmin, INCREMENT P, © OpenStreetMap contributors, and the GIS user community
+</p>
+
+<p><strong>Multi-Criteria Evaluation</strong><br>
+	<u>CHASS Data Centre - 2011 National Household Survey (NHS) Census Tracts Profiles<br>
+CHASS Data Centre - 2016 Census Tract Profiles
+</u><br>
+Census Tract Name; Vancouver, BC<br>
+Median household total income ($) <br>
+Median value of dwellings ($)<br>
+Total visible minority population; Both sexes (normalized by total population)<br>
+Aboriginal identity; Both sexes (normalized by total population)<br>
+University certificate, diploma or degree at bachelor level or above; Both sexes
+(normalized by total population aged 15 years and over)
+</p>
+
+
+<p><strong>Geographically Weighted Regression</strong><br>
+	<u>CHASS Data Centre - 2011 National Household Survey (NHS) Census Tracts Profiles </u><br>
+	Census Tract Name; Vancouver, BC <br>
+Total number of occupied dwellings by period of construction built in 1981 or before (normalized by
+total number of occupied private dwellings by period of construction)<br>
+Median commuting duration; Both sexes <br>
+Total number of private households by tenure; Renter<br>
+Total number of private households by tenure; Owner<br>
+Median Income ($); Both sexes<br>
+Total visible minority population; Both sexes (normalized by total population)<br>
+Aboriginal identity; Both sexes (normalized by total population)
+<br><br>
+<u>CHASS Data Centre- 2011 Census Tract Profiles</u><br>
+Census Tract Name; Vancouver, BC<br>
+Population density per square kilometer<br>
+Apartment building that has fewer than five stories (normalized by total number of
+occupied private dwellings by structural type of dwelling)<br>
+One-person households (normalized by total number of private households by household type)
+<br><br>
+<u>UBC Department of Geography Geospatial Database </u><br>
+2011 Community Centres
+
+
+<p><strong>Grouping Analysis</strong><br>
+<u>CHASS Data Centre - 2011 National Household Survey (NHS) Census Tracts Profiles</u><br>
+Census Tract Name; Vancouver, BC<br>
+Median commuting duration; Both sexes<br>
+Median Income ($); Both sexes<br>
+Total visible minority population; Both sexes (normalized by total population)<br>
+Aboriginal identity; Both sexes (normalized by total population)<br><br>
+<u>CHASS Data Centre- 2011 Census Tract Profiles</u><br>
+Census Tract Name; Vancouver, BC<br>
+Population density per square kilometer
+</p>
+</div>
+</section>
+
+<!-- Section -->
+	<section>
+		<header>
+			<h3>Methodology</h3>
+			<div class="gallery">
+				<div class="content">
+					<div class="gallery">
+						<a href="images/pic03.jpg" class="landscape"><img src="images/gallery/thumbs/03.png" alt="" /></a>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+								<a href="images/pic04.jpg" class="landscape"><img src="images/gallery/thumbs/pic04.jpg" alt="" /></a>
+					</div>
+			</div>
+		</header>
+			<div class="content">
+
+			<b>Base City Map</b> <br><br>
+			The census tract shapefile was clipped to the City of Vancouver boundary (ClipCT_2011)<br><br>
+
+<b>Multi-Criteria Evaluation (MCE)</b><br><br>
+
+The MCE methodology was adapted from a previous MCE exploring gentrification, full details can be found
+<a href = "https://rithikha.github.io/Gentrification/methodology.html">here</a>
+<br><br>
+<i>Data Cleaning</i>: Raw census data was normalized into percentages (if necessary) and then cleaned into columns with
+appropriate headers in Microsoft Excel. The 2016 income and housing prices were divided by a factor of 1.07 to account
+for inflation since 2011.
+<br><br>
+
+The 2011 and 2016 datasets were then imported into the geodatabase and joined by attribute table value
+ (CTUID) to ClipCT_2011. Five new fields for the changes in the five variables were created in the attribute table and using the attribute calculator, the percent change occurring from 2011 to 2016 was calculated for the median income and housing price fields using the following equation 1:
+<br><br>
+			Equation 1.   ((2016X  –  2011X) / 2011X) * 100
+<br><br>
+The change in the minority population, aboriginal population, and highly educated population were calculated using equation 2 as their values already existed as percentages:
+<br><br>
+Each MCE variable was then converted to raster format using the Polygon to Raster Tool  and the following inputs:
+	<br><br>
+			Equation 2.   2016X – 2011X
+			<br><br>
+			Each MCE variable was then converted to raster format using the Polygon to Raster Tool  and the following inputs:
+
+
+		</p>
+	</div>
+	</section>
+
+
+
+
+
+
+
+							<!-- Section -->
+								<section>
+									<header>
+										<h3>Erat aliquam</h3>
+										<p>Vehicula ultrices dolor amet ultricies et condimentum. Magna sed etiam consequat, et lorem adipiscing sed dolor sit amet, consectetur amet do eiusmod tempor incididunt  ipsum suspendisse ultrices gravida.</p>
+									</header>
+									<div class="content">
+										<div class="gallery">
+											<a href="images/gallery/fulls/01.jpg" class="landscape"><img src="images/gallery/thumbs/01.jpg" alt="" /></a>
+											<a href="images/gallery/fulls/02.jpg"><img src="images/gallery/thumbs/02.jpg" alt="" /></a>
+											<a href="images/gallery/fulls/03.jpg"><img src="images/gallery/thumbs/03.jpg" alt="" /></a>
+											<a href="images/gallery/fulls/04.jpg" class="landscape"><img src="images/gallery/thumbs/04.jpg" alt="" /></a>
+										</div>
+									</div>
+								</section>
+
+							<!-- Section -->
+								<section>
+									<header>
+										<h3>Nisl consequat</h3>
+										<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam sed facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet mauris. Ut magna finibus nisi nec lacinia ipsum maximus.</p>
+									</header>
+									<div class="content">
+										<div class="gallery">
+											<a href="images/gallery/fulls/05.jpg" class="landscape"><img src="images/gallery/thumbs/05.jpg" alt="" /></a>
+											<a href="images/gallery/fulls/06.jpg"><img src="images/gallery/thumbs/06.jpg" alt="" /></a>
+											<a href="images/gallery/fulls/07.jpg"><img src="images/gallery/thumbs/07.jpg" alt="" /></a>
+										</div>
+									</div>
+								</section>
+
+							<!-- Section -->
+								<section>
+									<header>
+										<h3>Lorem gravida</h3>
+										<p>Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aenean ornare velit lacus, ac varius sed enim lorem ullamcorper dolore.  ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis.</p>
+									</header>
+									<div class="content">
+										<div class="gallery">
+											<a href="images/gallery/fulls/08.jpg" class="portrait"><img src="images/gallery/thumbs/08.jpg" alt="" /></a>
+											<a href="images/gallery/fulls/09.jpg" class="portrait"><img src="images/gallery/thumbs/09.jpg" alt="" /></a>
+											<a href="images/gallery/fulls/10.jpg" class="landscape"><img src="images/gallery/thumbs/10.jpg" alt="" /></a>
+										</div>
+									</div>
+								</section>
+
+						</div>
+					</section>
+
+				<!-- Section -->
+					<section>
+						<header>
+							<h2>Duis sed adpiscing veroeros amet</h2>
+						</header>
+						<div class="content">
+							<p><strong>Proin tempus feugiat</strong> sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore.</p>
+							<ul class="actions">
+								<li><a href="#" class="button primary large">Get Started</a></li>
+								<li><a href="#" class="button large">Learn More</a></li>
+							</ul>
+						</div>
+					</section>
+
+				<!-- Elements -->
+				<!--
+					<section>
+						<header>
+							<h2>Elements</h2>
+						</header>
+						<div class="content">
+
+							<section>
+								<header>
+									<h3>Text</h3>
+								</header>
+								<div class="content">
+									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+									<hr />
+									<h2>Heading Level 2</h2>
+									<h3>Heading Level 3</h3>
+									<h4>Heading Level 4</h4>
+									<h5>Heading Level 5</h5>
+									<hr />
+									<h5>Blockquote</h5>
+									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+									<h5>Preformatted</h5>
+									<pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+  print 'Iteration ' + i;
+  deck.shuffle();
+  i++;
+}
+
+print 'Sorted in ' + i + ' iterations.';</code></pre>
+								</div>
+							</section>
+
+							<section>
+								<header>
+									<h3>Lists</h3>
+								</header>
+								<div class="content">
+
+									<h4>Unordered</h4>
+									<ul>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Alternate</h4>
+									<ul class="alt">
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Ordered</h4>
+									<ol>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis viverra.</li>
+										<li>Felis enim feugiat.</li>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis lorem.</li>
+										<li>Felis enim et feugiat.</li>
+									</ol>
+									<h4>Icons</h4>
+									<ul class="icons">
+										<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+									</ul>
+
+									<h4>Actions</h4>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions stacked">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+								</div>
+							</section>
+
+							<section>
+								<header>
+									<h3>Table</h3>
+								</header>
+								<div class="content">
+									<h4>Default</h4>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+
+									<h4>Alternate</h4>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+								</div>
+							</section>
+
+							<section>
+								<header>
+									<h3>Buttons</h3>
+								</header>
+								<div class="content">
+									<ul class="actions">
+										<li><a href="#" class="button primary">Primary</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button large">Large</a></li>
+										<li><a href="#" class="button">Default</a></li>
+										<li><a href="#" class="button small">Small</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button primary icon fa-download">Icon</a></li>
+										<li><a href="#" class="button icon fa-download">Icon</a></li>
+									</ul>
+									<ul class="actions">
+										<li><span class="button primary disabled">Disabled</span></li>
+										<li><span class="button disabled">Disabled</span></li>
+									</ul>
+								</div>
+							</section>
+
+							<section>
+								<header>
+									<h3>Form</h3>
+								</header>
+								<div class="content">
+									<form method="post" action="#">
+										<div class="fields">
+											<div class="field half">
+												<label for="demo-name">Name</label>
+												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
+											</div>
+											<div class="field half">
+												<label for="demo-email">Email</label>
+												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
+											</div>
+											<div class="field">
+												<label for="demo-category">Category</label>
+												<select name="demo-category" id="demo-category">
+													<option value="">-</option>
+													<option value="1">Manufacturing</option>
+													<option value="1">Shipping</option>
+													<option value="1">Administration</option>
+													<option value="1">Human Resources</option>
+												</select>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+												<label for="demo-priority-low">Low</label>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-high" name="demo-priority">
+												<label for="demo-priority-high">High</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-copy" name="demo-copy">
+												<label for="demo-copy">Email me a copy</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-human" name="demo-human" checked>
+												<label for="demo-human">Not a robot</label>
+											</div>
+											<div class="field">
+												<label for="demo-message">Message</label>
+												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+											</div>
+										</div>
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" class="primary" /></li>
+											<li><input type="reset" value="Reset" /></li>
+										</ul>
+									</form>
+								</div>
+							</section>
+
+						</div>
+					</section>
+				-->
+
+				<!-- Section -->
+					<section>
+						<header>
+							<h2>Get in touch</h2>
+						</header>
+						<div class="content">
+							<p><strong>Auctor commodo</strong> interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis.</p>
+							<form>
+								<div class="fields">
+									<div class="field half">
+										<input type="text" name="name" id="name" placeholder="Name" />
+									</div>
+									<div class="field half">
+										<input type="email" name="email" id="email" placeholder="Email" />
+									</div>
+									<div class="field">
+										<textarea name="message" id="message" placeholder="Message" rows="7"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" class="button primary" /></li>
+								</ul>
+							</form>
+						</div>
+						<footer>
+							<ul class="items">
+								<li>
+									<h3>Email</h3>
+									<a href="#">information@untitled.ext</a>
+								</li>
+								<li>
+									<h3>Phone</h3>
+									<a href="#">(000) 000-0000</a>
+								</li>
+								<li>
+									<h3>Address</h3>
+									<span>1234 Somewhere Road, Nashville, TN 00000</span>
+								</li>
+								<li>
+									<h3>Elsewhere</h3>
+									<ul class="icons">
+										<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+										<li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
+										<li><a href="#" class="icon fa-codepen"><span class="label">Codepen</span></a></li>
+									</ul>
+								</li>
+							</ul>
+						</footer>
+					</section>
+
+				<!-- Copyright -->
+					<div class="copyright">&copy; Untitled. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
